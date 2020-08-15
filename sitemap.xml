@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>/First-Post</loc>
+<loc>https://cantchasee.github.io/First-Post</loc>
 <lastmod>2020-08-12T00:00:00+01:00</lastmod>
 </url>
 <url>
-<loc>/HTB-Traceback-Writeup</loc>
+<loc>https://cantchasee.github.io/HTB-Traceback-Writeup</loc>
 <lastmod>2020-08-15T00:00:00+01:00</lastmod>
 </url>
 <url>
-<loc>/404</loc>
+<loc>https://cantchasee.github.io/404</loc>
 </url>
 <url>
-<loc>/about</loc>
+<loc>https://cantchasee.github.io/about</loc>
 </url>
 <url>
-<loc>/archive</loc>
+<loc>https://cantchasee.github.io/archive</loc>
 </url>
 <url>
-<loc>/</loc>
+<loc>https://cantchasee.github.io/</loc>
 </url>
 <url>
-<loc>/resources</loc>
+<loc>https://cantchasee.github.io/resources</loc>
 </url>
 </urlset>

@@ -3,8 +3,8 @@
   <channel>
     <title>cantchasee@home:~$</title>
     <description>Blog</description>
-    <link></link>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
+    <link>https://cantchasee.github.io</link>
+    <atom:link href="https://cantchasee.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <author>
       <name>cantchasee</name>
       <email></email>
@@ -14,17 +14,17 @@
       <item>
         <title>HackTheBox Traceback Writeup</title>
         <pubDate>Sat, 15 Aug 2020 00:00:00 +0100</pubDate>
-        <link>//HTB-Traceback-Writeup</link>
-        <link href="/HTB-Traceback-Writeup"/>
-        <guid isPermaLink="true">/HTB-Traceback-Writeup</guid>
+        <link>https://cantchasee.github.io//HTB-Traceback-Writeup</link>
+        <link href="https://cantchasee.github.io/HTB-Traceback-Writeup"/>
+        <guid isPermaLink="true">https://cantchasee.github.io/HTB-Traceback-Writeup</guid>
       </item>
     
       <item>
         <title>First Post</title>
         <pubDate>Wed, 12 Aug 2020 00:00:00 +0100</pubDate>
-        <link>//First-Post</link>
-        <link href="/First-Post"/>
-        <guid isPermaLink="true">/First-Post</guid>
+        <link>https://cantchasee.github.io//First-Post</link>
+        <link href="https://cantchasee.github.io/First-Post"/>
+        <guid isPermaLink="true">https://cantchasee.github.io/First-Post</guid>
       </item>
     
   </channel>
