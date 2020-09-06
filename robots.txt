@@ -1,2 +1,5 @@
 User-agent: *
-Disallow: /contact.html
+
+Disallow: /norobots/
+
+Sitemap: https://cantchasee.github.io/sitemap.xml
