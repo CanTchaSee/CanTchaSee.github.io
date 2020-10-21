@@ -228,7 +228,7 @@ Nmap <span class="k">done</span>: 1 IP address <span class="o">(</span>1 host up
 
 Completed after 155.38 seconds
 
-</pre></table></code></div></div><p>Epic Fail I’ve got nothing :( so it’s time for manual enumeration</p><p>Let’s start seeing if we can access smb</p><div class="language-sh highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></table></code></div></div><p>Epic Fail I’ve got nothing :( so it’s time for manual enumeration</p><blockquote><p>Edit: as <a href="https://www.hackthebox.eu/home/users/profile/211159">cddmp</a> stated the enumlinux-ng script actually didn’t fail sorry my mistake as you see the server allow random user session so if we rerun enumeration with it we must’ve got shares</p></blockquote><p>Let’s start seeing if we can access smb</p><div class="language-sh highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -250,7 +250,7 @@ Completed after 155.38 seconds
 	NETLOGON        Disk      Logon server share 
 	profiles<span class="nv">$ </span>      Disk      
 	SYSVOL          Disk      Logon server share 
-</pre></table></code></div></div><p>I added <code class="language-plaintext highlighter-rouge">-N</code> flag to try login as anonymous with no password and the <code class="language-plaintext highlighter-rouge">-L</code> flag to list smb shares so we’ve got a lot of interesting shares but two seems very interesting the <code class="language-plaintext highlighter-rouge">profiles$</code> share and <code class="language-plaintext highlighter-rouge">forensic</code> share let’s try accessing <code class="language-plaintext highlighter-rouge">forensic</code> share</p><div class="language-sh highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></table></code></div></div><p>I added <code class="language-plaintext highlighter-rouge">-N</code> flag to try login <s>as anonymous</s> with no password and the <code class="language-plaintext highlighter-rouge">-L</code> flag to list smb shares so we’ve got a lot of interesting shares but two seems very interesting the <code class="language-plaintext highlighter-rouge">profiles$</code> share and <code class="language-plaintext highlighter-rouge">forensic</code> share let’s try accessing <code class="language-plaintext highlighter-rouge">forensic</code> share</p><div class="language-sh highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
